@@ -10,7 +10,7 @@
 export default {
   data: function() {
     return {
-      message: "Welcome to Online Resumes!!!!!"
+      message: "Welcome to Online Resumes!"
     };
   },
   created: function() {},
