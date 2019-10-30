@@ -34,56 +34,45 @@
     <p>{{ capstone.description }}</p>
     <p>{{ capstone.url }}</p>
     <p>{{ capstone.screenshot }}</p>
-
   </div>
 </template>
 
 <style></style>
 
 <script>
+import axios from "axios";
+
 export default {
   data: function() {
     return {
       message: "SHOW PAGE",
-      student: {
-        first_name: "Noob", 
-        last_name: "Noob",
-        email: "noob@gmail.com",
-        phone_number: "123456",
-        bio: "my favorite video game is super smash bros ultimate",
-        linkedin: "linkedin.com/in/noob/",
-        twitter: "twitter.com/noob",
-        website: "www.noob.com",
-        resume: "www.noobresume.com",
-        github: "github.com/noob/",
-        photo: "www.noobphoto.com",
-      },
-      experience: {
-        start_date: "July 26, 2019",
-        end_date: "November 15, 2019",
-        job_title: "Noob",
-        company: "Noob LLC",
-        details: "I worked as a noob",
-      },
+      student: {},
+
+      experience: {},
       education: {
         start_date: "July 26, 2019",
         end_date: "November 15, 2019",
         degree: "Bachelor of Science in Noob",
         university: "University of Noobs",
-        details: "I studied being a noob",
+        details: "I studied being a noob"
       },
       skill: {
-        name: "Being a noob",
+        name: "Being a noob"
       },
       capstone: {
         name: "Noob",
         description: "Project showcasing how much of a noob I am",
         URL: "www.capstone.com/noob",
-        screenshot: "picture of noob project here",
+        screenshot: "picture of noob project here"
       }
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/api/students/" + this.$route.params.id).then(response => {
+      this.student = response.data;
+      console.log(this.student);
+    });
+  },
   methods: {}
 };
 </script>
