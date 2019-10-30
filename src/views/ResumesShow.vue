@@ -13,11 +13,11 @@
     <p>{{ student.photo }}</p>
 
     <h2>EXPERIENCE</h2>
-    <p>{{ experience.start_date }}</p>
-    <p>{{ experience.end_date }}</p>
-    <p>{{ experience.job_title }}</p>
-    <p>{{ experience.company }}</p>
-    <p>{{ experience.details }}</p>
+    <p>{{ student.experiences.start_date }}</p>
+    <p>{{ student.experiences.end_date }}</p>
+    <p>{{ student.experiences.job_title }}</p>
+    <p>{{ student.experiences.company }}</p>
+    <p>{{ student.experiences.details }}</p>
 
     <h2>EDUCATION</h2>
     <p>{{ education.start_date }}</p>
@@ -48,7 +48,8 @@ export default {
       message: "SHOW PAGE",
       student: {},
 
-      experience: {},
+      experience: [],
+
       education: {
         start_date: "July 26, 2019",
         end_date: "November 15, 2019",
