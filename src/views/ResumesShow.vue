@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="sidebar-wrapper">
         <div class="profile-container">
-          <img class="profile" src="" alt="" />
+          <img width="150" height="150" :src="student.photo" class="rounded-circle" alt="" />
           <h1 class="name">{{ student.first_name }} {{ student.last_name }}</h1>
           <h3 class="tagline">Full Stack Developer</h3>
         </div>
@@ -48,68 +48,12 @@
           <div class="item">
             <h4 class="degree">{{ student.educations[0]["degree"] }}</h4>
             <h5 class="meta">{{ student.educations[0]["university"] }}</h5>
-            <div class="time">{{ formattedDate(student.educations[0]["start_date"]) }} - {{ formattedDate(student.educations[0]["end_date"]) }}</div>
+            <div class="time">
+              {{ formattedDate(student.educations[0]["start_date"]) }} -
+              {{ formattedDate(student.educations[0]["end_date"]) }}
+            </div>
           </div>
         </div>
-        <!--//education-container-->
-
-        <div class="skills-container container-block">
-          <h2 class="container-block-title">Skills</h2>
-          <ul class="list-unstyled interests-list">
-            <li>
-              {{ student.skills[0]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[1]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[2]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[3]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[4]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[5]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[6]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[7]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[8]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-            <li>
-              {{ student.skills[9]["name"] }}
-              <span class="lang-desc"></span>
-            </li>
-          </ul>
-        </div>
-        <!--//capstone-->
-
-        <div class="capstone-container container-block">
-          <h2 class="container-block-title">Capstone</h2>
-          <ul class="list-unstyled capstone-list">
-            <li>{{ student.capstones[0]["name"] }}</li>
-            <li>{{ student.capstones[0]["description"] }}</li>
-            <li>{{ student.capstones[0]["url"] }}</li>
-            <li>{{ student.capstones[0]["screenshot"] }}</li>
-          </ul>
-        </div>
-        <!--//capstone-->
       </div>
       <!--//sidebar-wrapper-->
 
@@ -147,7 +91,9 @@
               <div class="upper-row">
                 <h3 class="job-title">{{ student.experiences[0]["job_title"] }}</h3>
                 <div class="time">
-                  {{ formattedDate(student.experiences[0]["start_date"]) }} - {{ formattedDate(student.experiences[0]["end_date"]) }}
+                  {{ student.experiences[0]["start_date"] }} - {{ student.experiences[0]["end_date"] }}
+                  {{ formattedDate(student.experiences[0]["start_date"]) }} -
+                  {{ formattedDate(student.experiences[0]["end_date"]) }}
                 </div>
               </div>
               <!--//upper-row-->
@@ -161,27 +107,6 @@
             </div>
           </div>
           <!--//item-->
-
-          <div class="item">
-            <div class="meta">
-              <div class="upper-row">
-                <h3 class="job-title">UI Developer</h3>
-                <div class="time">2012 - 2014</div>
-              </div>
-              <!--//upper-row-->
-              <div class="company">Amazon, London</div>
-            </div>
-            <!--//meta-->
-            <div class="details">
-              <p>
-                Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-                eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-                ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-              </p>
-            </div>
-            <!--//details-->
-          </div>
-          <!--//item-->
         </section>
         <!--//section-->
 
@@ -190,84 +115,18 @@
             <span class="icon-holder"><i class="fas fa-archive"></i></span>
             Projects
           </h2>
-          <div class="intro">
-            <p>
-              You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-            </p>
-          </div>
+          <div class="intro"></div>
           <!--//intro-->
           <div class="item">
-            <span class="project-title"><a href="#hook">Velocity</a></span>
-            -
-            <span class="project-tagline">
-              A responsive website template designed to help startups promote, market and sell their products.
-            </span>
-          </div>
-          <!--//item-->
-          <div class="item">
             <span class="project-title">
-              <a
-                href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-web-development-agencies-devstudio/"
-                target="_blank"
-              >
-                DevStudio
-              </a>
+              <a href="#hook">Capstone - {{ student.capstones[0]["name"] }}</a>
             </span>
             -
             <span class="project-tagline">
-              A responsive website template designed to help web developers/designers market their services.
+              {{ student.capstones[0]["description"] }} ({{ student.capstones[0]["url"] }})
             </span>
           </div>
-          <!--//item-->
-          <div class="item">
-            <span class="project-title">
-              <a
-                href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-startups-tempo/"
-                target="_blank"
-              >
-                Tempo
-              </a>
-            </span>
-            -
-            <span class="project-tagline">
-              A responsive website template designed to help startups promote their products or services and to attract
-              users &amp; investors
-            </span>
-          </div>
-          <!--//item-->
-          <div class="item">
-            <span class="project-title">
-              <a
-                href="hhttp://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-mobile-apps-atom/"
-                target="_blank"
-              >
-                Atom
-              </a>
-            </span>
-            -
-            <span class="project-tagline">
-              A comprehensive website template solution for startups/developers to market their mobile apps.
-            </span>
-          </div>
-          <!--//item-->
-          <div class="item">
-            <span class="project-title">
-              <a
-                href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-mobile-apps-delta/"
-                target="_blank"
-              >
-                Delta
-              </a>
-            </span>
-            -
-            <span class="project-tagline">
-              A responsive Bootstrap one page theme designed to help app developers promote their mobile apps
-            </span>
-          </div>
-          <!--//item-->
         </section>
-        <!--//section-->
 
         <section class="skills-section section">
           <h2 class="section-title">
@@ -276,7 +135,7 @@
           </h2>
           <div class="skillset">
             <div class="item">
-              <h3 class="level-title">Python &amp; Django</h3>
+              <h3 class="level-title">{{ student.skills[0]["name"] }}</h3>
               <div class="progress level-bar">
                 <div
                   class="progress-bar theme-progress-bar"
@@ -291,7 +150,7 @@
             <!--//item-->
 
             <div class="item">
-              <h3 class="level-title">Javascript &amp; jQuery</h3>
+              <h3 class="level-title">{{ student.skills[1]["name"] }}</h3>
               <div class="progress level-bar">
                 <div
                   class="progress-bar theme-progress-bar"
@@ -306,7 +165,7 @@
             <!--//item-->
 
             <div class="item">
-              <h3 class="level-title">Angular</h3>
+              <h3 class="level-title">{{ student.skills[2]["name"] }}</h3>
               <div class="progress level-bar">
                 <div
                   class="progress-bar theme-progress-bar"
@@ -321,7 +180,7 @@
             <!--//item-->
 
             <div class="item">
-              <h3 class="level-title">HTML5 &amp; CSS</h3>
+              <h3 class="level-title">{{ student.skills[3]["name"] }}</h3>
               <div class="progress level-bar">
                 <div
                   class="progress-bar theme-progress-bar"
@@ -336,7 +195,7 @@
             <!--//item-->
 
             <div class="item">
-              <h3 class="level-title">Ruby on Rails</h3>
+              <h3 class="level-title">{{ student.skills[4]["name"] }}</h3>
               <div class="progress level-bar">
                 <div
                   class="progress-bar theme-progress-bar"
@@ -351,13 +210,69 @@
             <!--//item-->
 
             <div class="item">
-              <h3 class="level-title">Sketch &amp; Photoshop</h3>
+              <h3 class="level-title">{{ student.skills[5]["name"] }}</h3>
               <div class="progress level-bar">
                 <div
                   class="progress-bar theme-progress-bar"
                   role="progressbar"
                   style="width: 60%"
                   aria-valuenow="60"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">{{ student.skills[6]["name"] }}</h3>
+              <div class="progress level-bar">
+                <div
+                  class="progress-bar theme-progress-bar"
+                  role="progressbar"
+                  style="width: 50%"
+                  aria-valuenow="50"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">{{ student.skills[7]["name"] }}</h3>
+              <div class="progress level-bar">
+                <div
+                  class="progress-bar theme-progress-bar"
+                  role="progressbar"
+                  style="width: 40%"
+                  aria-valuenow="40"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">{{ student.skills[8]["name"] }}</h3>
+              <div class="progress level-bar">
+                <div
+                  class="progress-bar theme-progress-bar"
+                  role="progressbar"
+                  style="width: 30%"
+                  aria-valuenow="30"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">{{ student.skills[9]["name"] }}</h3>
+              <div class="progress level-bar">
+                <div
+                  class="progress-bar theme-progress-bar"
+                  role="progressbar"
+                  style="width: 20%"
+                  aria-valuenow="20"
                   aria-valuemin="0"
                   aria-valuemax="100"
                 ></div>
@@ -419,7 +334,7 @@
 
 <script>
 import axios from "axios";
-import moment from 'moment';
+import moment from "moment";
 
 export default {
   data: function() {
@@ -440,7 +355,7 @@ export default {
   },
   methods: {
     formattedDate: function(date) {
-      return moment(date).format('MMMM YYYY');
+      return moment(date).format("MMMM YYYY");
     }
   }
 };
