@@ -283,7 +283,11 @@
         <!--//skills-section-->
         <template>
           <twitter>
-            <a class="twitter-timeline" v-bind:href="'https://www.' + student.twitter + '?ref_src=twsrc%5Etfw'">
+            <a
+              class="twitter-timeline"
+              data-tweet-limit="5"
+              v-bind:href="'https://www.' + student.twitter + '?ref_src=twsrc%5Etfw'"
+            >
               Tweets by {{ student.first_name }} {{ student.last_name }}
             </a>
           </twitter>
