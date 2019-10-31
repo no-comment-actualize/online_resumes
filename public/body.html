@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="sidebar-wrapper">
     <div class="profile-container">
-      <img class="profile" src="assets/images/profile.png" alt="" />
-      <h1 class="name">Alan Doe</h1>
+      <img class="profile" src="" alt="" />
+      <h1 class="name">{{student.first_name}} {{student.last_name}}</h1>
       <h3 class="tagline">Full Stack Developer</h3>
     </div>
     <!--//profile-container-->
@@ -11,11 +11,11 @@
       <ul class="list-unstyled contact-list">
         <li class="email">
           <i class="fas fa-envelope"></i>
-          <a href="mailto: yourname@email.com">alan.doe@website.com</a>
+          <a href="mailto: yourname@email.com">{{student.email}}</a>
         </li>
         <li class="phone">
           <i class="fas fa-phone"></i>
-          <a href="tel:0123 456 789">0123 456 789</a>
+          <a href="tel:0123 456 789">{{student.phone_number}}</a>
         </li>
         <li class="website">
           <i class="fas fa-globe"></i>
@@ -23,20 +23,20 @@
             href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/"
             target="_blank"
           >
-            portfoliosite.com
+            {{student.email}}
           </a>
         </li>
         <li class="linkedin">
           <i class="fab fa-linkedin-in"></i>
-          <a href="#" target="_blank">linkedin.com/in/alandoe</a>
+          <a href="#" target="_blank">{{student.linkedin}}</a>
         </li>
         <li class="github">
           <i class="fab fa-github"></i>
-          <a href="#" target="_blank">github.com/username</a>
+          <a href="#" target="_blank">{{student.github}}</a>
         </li>
         <li class="twitter">
           <i class="fab fa-twitter"></i>
-          <a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a>
+          <a href="https://twitter.com/3rdwave_themes" target="_blank">{{student.twitter}}</a>
         </li>
       </ul>
     </div>
@@ -44,48 +44,70 @@
     <div class="education-container container-block">
       <h2 class="container-block-title">Education</h2>
       <div class="item">
-        <h4 class="degree">MSc in Computer Science</h4>
-        <h5 class="meta">University of London</h5>
-        <div class="time">2011 - 2012</div>
+        <h4 class="degree">{{student.educations[0]["degree"]}}</h4>
+        <h5 class="meta">{{student.educations[0]["university"]}}</h5>
+        <div class="time">{{student.educations[0]["start_date"]}} {{student.educations[0]["end_date"]}}</div>
       </div>
-      <!--//item-->
-      <div class="item">
-        <h4 class="degree">BSc in Applied Mathematics</h4>
-        <h5 class="meta">Bristol University</h5>
-        <div class="time">2007 - 2011</div>
-      </div>
-      <!--//item-->
     </div>
     <!--//education-container-->
 
-    <div class="languages-container container-block">
-      <h2 class="container-block-title">Languages</h2>
+    <div class="skills-container container-block">
+      <h2 class="container-block-title">Skills</h2>
       <ul class="list-unstyled interests-list">
         <li>
-          English
-          <span class="lang-desc">(Native)</span>
+          {{student.skills[0]["name"]}}
+          <span class="lang-desc"></span>
         </li>
         <li>
-          French
-          <span class="lang-desc">(Professional)</span>
+          {{student.skills[1]["name"]}}
+          <span class="lang-desc"></span>
         </li>
         <li>
-          Spanish
-          <span class="lang-desc">(Professional)</span>
+          {{student.skills[2]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[3]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[4]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[5]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[6]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[7]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[8]["name"]}}
+          <span class="lang-desc"></span>
+        </li>
+        <li>
+          {{student.skills[9]["name"]}}
+          <span class="lang-desc"></span>
         </li>
       </ul>
     </div>
-    <!--//interests-->
+    <!--//capstone-->
 
-    <div class="interests-container container-block">
-      <h2 class="container-block-title">Interests</h2>
-      <ul class="list-unstyled interests-list">
-        <li>Climbing</li>
-        <li>Snowboarding</li>
-        <li>Cooking</li>
+    <div class="capstone-container container-block">
+      <h2 class="container-block-title">Capstone</h2>
+      <ul class="list-unstyled capstone-list">
+        <li>{{student.capstones[0]["name"]}}</li>
+        <li>{{student.capstones[0]["description"]}}</li>
+        <li>{{student.capstones[0]["url"]}}</li>
+        <li>{{student.capstones[0]["screenshot"]}}</li>
       </ul>
     </div>
-    <!--//interests-->
+    <!--//capstone-->
   </div>
   <!--//sidebar-wrapper-->
 
@@ -93,19 +115,19 @@
     <section class="section summary-section">
       <h2 class="section-title">
         <span class="icon-holder"><i class="fas fa-user"></i></span>
-        Career Profile
+        Bio
       </h2>
-      <div class="summary">
+      <div class="bio">
         <p>
-          Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can
-          <a
+          {{student.bio}}
+          <!-- <a
             href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/"
             target="_blank"
           >
             download this free resume/CV template here
           </a>
           . Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.
+          nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu. -->
         </p>
       </div>
       <!--//summary-->
@@ -115,53 +137,24 @@
     <section class="section experiences-section">
       <h2 class="section-title">
         <span class="icon-holder"><i class="fas fa-briefcase"></i></span>
-        Experiences
+        Experience
       </h2>
 
       <div class="item">
         <div class="meta">
           <div class="upper-row">
-            <h3 class="job-title">Lead Developer</h3>
-            <div class="time">2015 - Present</div>
+            <h3 class="job-title">{{student.experiences[0]["job_title"]}}</h3>
+            <div class="time">{{student.experiences[0]["start_date"]}} {{student.experiences[0]["end_date"]}}</div>
           </div>
           <!--//upper-row-->
-          <div class="company">Startup Hubs, San Francisco</div>
+          <div class="company">{{student.experiences[0]["company"]}}</div>
         </div>
         <!--//meta-->
         <div class="details">
           <p>
-            Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-            dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-            pede justo.
-          </p>
-          <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            {{student.experiences[0]["details"]}}
           </p>
         </div>
-        <!--//details-->
-      </div>
-      <!--//item-->
-
-      <div class="item">
-        <div class="meta">
-          <div class="upper-row">
-            <h3 class="job-title">Senior Software Engineer</h3>
-            <div class="time">2014 - 2015</div>
-          </div>
-          <!--//upper-row-->
-          <div class="company">Google, London</div>
-        </div>
-        <!--//meta-->
-        <div class="details">
-          <p>
-            Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-            dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-          </p>
-        </div>
-        <!--//details-->
       </div>
       <!--//item-->
 
