@@ -91,7 +91,6 @@
               <div class="upper-row">
                 <h3 class="job-title">{{ student.experiences[0]["job_title"] }}</h3>
                 <div class="time">
-                  {{ student.experiences[0]["start_date"] }} - {{ student.experiences[0]["end_date"] }}
                   {{ formattedDate(student.experiences[0]["start_date"]) }} -
                   {{ formattedDate(student.experiences[0]["end_date"]) }}
                 </div>
