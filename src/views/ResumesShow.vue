@@ -48,7 +48,7 @@
           <div class="item">
             <h4 class="degree">{{ student.educations[0]["degree"] }}</h4>
             <h5 class="meta">{{ student.educations[0]["university"] }}</h5>
-            <div class="time">{{ student.educations[0]["start_date"] }} {{ student.educations[0]["end_date"] }}</div>
+            <div class="time">{{ formattedDate(student.educations[0]["start_date"]) }} - {{ formattedDate(student.educations[0]["end_date"]) }}</div>
           </div>
         </div>
         <!--//education-container-->
@@ -147,7 +147,7 @@
               <div class="upper-row">
                 <h3 class="job-title">{{ student.experiences[0]["job_title"] }}</h3>
                 <div class="time">
-                  {{ student.experiences[0]["start_date"] }} {{ student.experiences[0]["end_date"] }}
+                  {{ formattedDate(student.experiences[0]["start_date"]) }} - {{ formattedDate(student.experiences[0]["end_date"]) }}
                 </div>
               </div>
               <!--//upper-row-->
@@ -419,6 +419,7 @@
 
 <script>
 import axios from "axios";
+import moment from 'moment';
 
 export default {
   data: function() {
@@ -437,6 +438,10 @@ export default {
       console.log(this.student);
     });
   },
-  methods: {}
+  methods: {
+    formattedDate: function(date) {
+      return moment(date).format('MMMM YYYY');
+    }
+  }
 };
 </script>
